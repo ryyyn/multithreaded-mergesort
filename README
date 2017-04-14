@@ -1,0 +1,36 @@
+Comments addressed/changes made:
+
+-Instead of deciding which half of the data to process in the sorters, the parent now passes in the correct range through the constructor
+-The process destructor now waits correctly
+-Virtual destructor added to sort_strategy.hxx
+-business() in inherited classes changed to be virtual
+-mq_sorter works correctly due to sending a blank initial message
+-Edge case checking added (if data has one member)
+-Exit status of child process depends on successful completion
+-shm fully implemented, error checking added to semaphore and shm
+-(as addressed in office hours) parent now waits on child and throws upon bad exit status
+
+-----------------------------------------------
+Files needed to run:
+CMakeLists.txt
+mq.hxx
+mq.txx
+mq_sorter.hxx 
+mq_sorter.txx
+mergesort.cxx
+process.hxx
+process.txx
+semaphore.hxx
+semaphore.txx
+sort_strategy.hxx
+sort_strategy.txx
+shm.hxx
+shm.txx
+shm_sorter.hxx
+shm_sorter.txx
+utility.hxx
+utility.txx
+ 
+
+To compile:
+$ cmake . && make
